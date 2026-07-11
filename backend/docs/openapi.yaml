@@ -1,0 +1,142 @@
+openapi: 3.0.3
+info:
+  title: LearnSphere SaaS LMS Backend API
+  description: Complete OpenAPI 3.0 specification for authentication, user profiles, course creators, lessons completions, assignments submissions, and grading endpoints.
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000/api
+    description: Local development server
+paths:
+  /users/register:
+    post:
+      summary: Register a new platform account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+                - firstName
+                - lastName
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                role:
+                  type: string
+                  enum: [STUDENT, INSTRUCTOR, ADMIN]
+      responses:
+        201:
+          description: Registration completed successfully
+  /users/login:
+    post:
+      summary: Authenticate credentials and get JWT token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: Authentication tokens verified
+  /users/profile:
+    put:
+      summary: Update user details
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                biography:
+                  type: string
+      responses:
+        200:
+          description: Profile updated
+  /dashboard/student:
+    get:
+      summary: Fetch student metrics and learning calendar progress
+      security:
+        - BearerAuth: []
+      responses:
+        200:
+          description: Core student widgets data
+  /courses:
+    get:
+      summary: Query catalog courses with filters
+      parameters:
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: category
+          in: query
+          schema:
+            type: string
+        - name: difficulty
+          in: query
+          schema:
+            type: string
+      responses:
+        200:
+          description: List of courses matching criteria
+    post:
+      summary: Create a new course (Instructor/Admin)
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - description
+                - category
+                - difficulty
+                - duration
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                category:
+                  type: string
+                difficulty:
+                  type: string
+                duration:
+                  type: integer
+      responses:
+        201:
+          description: Course created successfully
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

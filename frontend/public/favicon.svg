@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+  </defs>
+  
+  {/* Rounded Background Frame */}
+  <rect width="32" height="32" rx="8" fill="#0B0F17" />
+  <rect width="32" height="32" rx="8" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+  
+  {/* Orbital tech ring */}
+  <circle cx="16" cy="16" r="11" stroke="url(#logoGrad)" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.65" />
+  
+  {/* Graduation Cap */}
+  <path d="M16 8.5L24 12.5L16 16.5L8 12.5L16 8.5Z" fill="url(#logoGrad)" />
+  <path d="M11 15V18C11 19.5 13.25 20.5 16 20.5C18.75 20.5 21 19.5 21 18V15" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" />
+  
+  {/* Tassel */}
+  <path d="M21.5 13.5V16.5" stroke="#06B6D4" stroke-width="1" stroke-linecap="round" />
+  <circle cx="21.5" cy="16.5" r="1" fill="#06B6D4" />
+</svg>
