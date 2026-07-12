@@ -35,6 +35,25 @@ export const authenticate = (req: AuthenticatedRequest, res: Response, next: Nex
   }
 };
 
+export const optionalAuthenticate = (req: AuthenticatedRequest, res: Response, next: NextFunction): void => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return next();
+  }
+
+  const token = authHeader.split(' ')[1];
+
+  try {
+    const decoded = jwt.verify(token, config.jwtSecret) as AuthUser;
+    req.user = decoded;
+    next();
+  } catch (error) {
+    res.status(401).json({ message: 'Invalid or expired token' });
+    return;
+  }
+};
+
 export const authorize = (roles: Role[]) => {
   return (req: AuthenticatedRequest, res: Response, next: NextFunction): void => {
     if (!req.user) {

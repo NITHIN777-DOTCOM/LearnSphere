@@ -9,13 +9,13 @@ import {
   unpublishCourse,
   enrollCourse,
 } from '../controllers/courses.controller.js';
-import { authenticate } from '../middleware/auth.js';
+import { authenticate, optionalAuthenticate } from '../middleware/auth.js';
 
 const router = Router();
 
 // Browse & filter courses
-router.get('/', authenticate, getCourses);
-router.get('/:id', authenticate, getCourseById);
+router.get('/', optionalAuthenticate, getCourses);
+router.get('/:id', optionalAuthenticate, getCourseById);
 
 // Manage courses (Instructor/Admin)
 router.post('/', authenticate, createCourse);

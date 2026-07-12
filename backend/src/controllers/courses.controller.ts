@@ -28,8 +28,8 @@ export const getCourses = async (req: AuthenticatedRequest, res: Response): Prom
     if (status) {
       whereClause.status = status as string;
     } else {
-      // By default, if student, show only published; if instructor, let them see drafts
-      if (req.user?.role === 'STUDENT') {
+      // By default, if guest or student, show only published; if instructor, let them see drafts
+      if (!req.user || req.user.role === 'STUDENT') {
         whereClause.status = 'PUBLISHED';
       }
     }
