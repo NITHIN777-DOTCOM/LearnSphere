@@ -36,6 +36,7 @@ interface UpcomingAssignmentItem {
   id: string;
   title: string;
   dueDate: string;
+  courseId: string;
   course: {
     title: string;
   };
@@ -399,7 +400,7 @@ export const StudentDashboard: React.FC = () => {
                 ) : (
                   assignments.map((asm) => (
                     <div key={asm.id} className="pb-3 border-b border-border/40 last:border-b-0 last:pb-0">
-                      <Link to={`/dashboard/courses/submissions`} className="hover:text-primary transition-colors">
+                      <Link to={`/dashboard/courses/${asm.courseId}/learn`} className="hover:text-primary transition-colors">
                         <p className="text-sm font-semibold text-foreground line-clamp-1">{asm.title}</p>
                       </Link>
                       <p className="text-[10px] text-muted-text mt-0.5 font-medium">Course: {asm.course.title}</p>

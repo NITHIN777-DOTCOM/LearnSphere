@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext.js';
 import { ToastProvider } from './components/Toast.js';
 import { DashboardLayout } from './layouts/DashboardLayout.js';
+import { RequireRole } from './components/RequireRole.js';
 import { ThemeProvider } from './context/ThemeContext.js';
 import { Card, CardHeader, CardTitle, CardContent } from './components/Card.js';
 
@@ -58,54 +59,34 @@ export const App: React.FC = () => {
                   <Route index element={<DashboardOverviewPage />} />
                   
                   {/* Student Views */}
-                  <Route
-                    path="my-courses"
-                    element={<ExploreCoursesPage />}
-                  />
-                  <Route
-                    path="explore"
-                    element={<ExploreCoursesPage />}
-                  />
-                  <Route
-                    path="courses/:id"
-                    element={<CourseDetailsPage />}
-                  />
-                  <Route
-                    path="courses/:id/learn"
-                    element={<StudentLessonViewerPage />}
-                  />
-                  <Route
-                    path="certificates"
-                    element={<DashboardPlaceholder title="Certificates" desc="Student course completion awards" />}
-                  />
+                  <Route element={<RequireRole roles={['STUDENT']} />}>
+                    <Route path="my-courses" element={<ExploreCoursesPage />} />
+                    <Route path="explore" element={<ExploreCoursesPage />} />
+                    <Route path="courses/:id/learn" element={<StudentLessonViewerPage />} />
+                    <Route
+                      path="certificates"
+                      element={<DashboardPlaceholder title="Certificates" desc="Student course completion awards" />}
+                    />
+                  </Route>
+
+                  {/* Shared course page */}
+                  <Route path="courses/:id" element={<CourseDetailsPage />} />
 
                   {/* Instructor Views */}
-                  <Route
-                    path="courses"
-                    element={<InstructorDashboard />}
-                  />
-                  <Route
-                    path="courses/new"
-                    element={<InstructorCourseEditorPage />}
-                  />
-                  <Route
-                    path="courses/:id/edit"
-                    element={<InstructorCourseEditorPage />}
-                  />
-                  <Route
-                    path="analytics"
-                    element={<InstructorAnalyticsPage />}
-                  />
+                  <Route element={<RequireRole roles={['INSTRUCTOR', 'ADMIN']} />}>
+                    <Route path="courses" element={<InstructorDashboard />} />
+                    <Route path="courses/new" element={<InstructorCourseEditorPage />} />
+                    <Route path="courses/:id/edit" element={<InstructorCourseEditorPage />} />
+                  </Route>
+                  <Route element={<RequireRole roles={['INSTRUCTOR']} />}>
+                    <Route path="analytics" element={<InstructorAnalyticsPage />} />
+                  </Route>
 
                   {/* Admin Views */}
-                  <Route
-                    path="admin/users"
-                    element={<AdminUsersPage />}
-                  />
-                  <Route
-                    path="admin/courses"
-                    element={<AdminCoursesPage />}
-                  />
+                  <Route element={<RequireRole roles={['ADMIN']} />}>
+                    <Route path="admin/users" element={<AdminUsersPage />} />
+                    <Route path="admin/courses" element={<AdminCoursesPage />} />
+                  </Route>
 
                   {/* Shared Settings */}
                   <Route

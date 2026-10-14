@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Link, useNavigate } from 'react-router-dom';
-import { Mail, Lock, User as UserIcon, GraduationCap, ShieldAlert, UserPlus, ArrowLeft } from 'lucide-react';
+import { Mail, Lock, User as UserIcon, GraduationCap, UserPlus, ArrowLeft } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth.js';
 import { useToast } from '../components/Toast.js';
 import { Button } from '../components/Button.js';
@@ -17,7 +17,7 @@ const registerSchema = z.object({
   email: z.string().email({ message: 'Invalid email address' }),
   password: z.string().min(8, { message: 'Password must be at least 8 characters long' }),
   confirmPassword: z.string().min(1, { message: 'Please confirm your password' }),
-  role: z.enum(['STUDENT', 'INSTRUCTOR', 'ADMIN'] as const),
+  role: z.enum(['STUDENT', 'INSTRUCTOR'] as const),
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Passwords don't match",
   path: ['confirmPassword'],
@@ -44,7 +44,7 @@ export const RegisterPage: React.FC = () => {
     },
   });
 
-  const selectRole = (role: Role) => {
+  const selectRole = (role: 'STUDENT' | 'INSTRUCTOR') => {
     setSelectedRole(role);
     setValue('role', role);
   };
@@ -92,7 +92,7 @@ export const RegisterPage: React.FC = () => {
               {/* Role Picker */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-foreground/80">Choose your account type</label>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 gap-3">
                   <button
                     type="button"
                     onClick={() => selectRole('STUDENT')}
@@ -117,19 +117,6 @@ export const RegisterPage: React.FC = () => {
                   >
                     <GraduationCap className="w-5 h-5" />
                     <span className="text-xs font-semibold">Instructor</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => selectRole('ADMIN')}
-                    className={`flex flex-col items-center gap-2 p-3.5 rounded-lg border text-center transition-all ${
-                      selectedRole === 'ADMIN'
-                        ? 'border-primary bg-primary/5 text-primary'
-                        : 'border-border bg-muted-bg/40 text-muted-text hover:text-foreground hover:border-border/80'
-                    }`}
-                  >
-                    <ShieldAlert className="w-5 h-5" />
-                    <span className="text-xs font-semibold">Admin</span>
                   </button>
                 </div>
               </div>

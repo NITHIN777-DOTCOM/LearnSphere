@@ -10,7 +10,8 @@ import { Role } from '@prisma/client';
 const registerSchema = z.object({
   email: z.string().email({ message: 'Invalid email address' }),
   password: z.string().min(8, { message: 'Password must be at least 8 characters long' }),
-  role: z.nativeEnum(Role).default(Role.STUDENT),
+  // Admin accounts can't be self-registered; an existing admin promotes users instead
+  role: z.enum([Role.STUDENT, Role.INSTRUCTOR]).default(Role.STUDENT),
   firstName: z.string().min(1, { message: 'First name is required' }),
   lastName: z.string().min(1, { message: 'Last name is required' }),
 });
