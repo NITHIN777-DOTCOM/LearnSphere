@@ -331,7 +331,7 @@ export const InstructorCourseEditorPage: React.FC = () => {
           <button
             onClick={() => setActiveTab('INFO')}
             className={`px-4 py-2 text-xs font-semibold rounded cursor-pointer transition-colors ${
-              activeTab === 'INFO' ? 'bg-primary text-white' : 'bg-muted-bg text-muted-text hover:text-white'
+              activeTab === 'INFO' ? 'bg-primary text-primary-foreground' : 'bg-muted-bg text-muted-text hover:text-foreground'
             }`}
           >
             Course Details
@@ -339,7 +339,7 @@ export const InstructorCourseEditorPage: React.FC = () => {
           <button
             onClick={() => setActiveTab('CURRICULUM')}
             className={`px-4 py-2 text-xs font-semibold rounded cursor-pointer transition-colors ${
-              activeTab === 'CURRICULUM' ? 'bg-primary text-white' : 'bg-muted-bg text-muted-text hover:text-white'
+              activeTab === 'CURRICULUM' ? 'bg-primary text-primary-foreground' : 'bg-muted-bg text-muted-text hover:text-foreground'
             }`}
           >
             Curriculum (Lessons)
@@ -347,7 +347,7 @@ export const InstructorCourseEditorPage: React.FC = () => {
           <button
             onClick={() => setActiveTab('EVALUATIONS')}
             className={`px-4 py-2 text-xs font-semibold rounded cursor-pointer transition-colors ${
-              activeTab === 'EVALUATIONS' ? 'bg-primary text-white' : 'bg-muted-bg text-muted-text hover:text-white'
+              activeTab === 'EVALUATIONS' ? 'bg-primary text-primary-foreground' : 'bg-muted-bg text-muted-text hover:text-foreground'
             }`}
           >
             Tasks & Quizzes
@@ -434,7 +434,7 @@ export const InstructorCourseEditorPage: React.FC = () => {
                     {tags.map((tag, idx) => (
                       <Badge key={idx} variant="info" className="gap-2.5 py-1 px-3">
                         {tag}
-                        <button type="button" onClick={() => removeTag(idx)} className="text-danger hover:text-white font-bold cursor-pointer">×</button>
+                        <button type="button" onClick={() => removeTag(idx)} className="text-danger hover:text-foreground font-bold cursor-pointer">×</button>
                       </Badge>
                     ))}
                   </div>
@@ -485,14 +485,14 @@ export const InstructorCourseEditorPage: React.FC = () => {
                           <button
                             onClick={() => handleReorderLesson(idx, 'UP')}
                             disabled={idx === 0}
-                            className="p-0.5 text-muted-text hover:text-white disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                            className="p-0.5 text-muted-text hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
                           >
                             <ChevronUp className="w-3.5 h-3.5" />
                           </button>
                           <button
                             onClick={() => handleReorderLesson(idx, 'DOWN')}
                             disabled={idx === lessons.length - 1}
-                            className="p-0.5 text-muted-text hover:text-white disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                            className="p-0.5 text-muted-text hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
                           >
                             <ChevronDown className="w-3.5 h-3.5" />
                           </button>
@@ -501,7 +501,7 @@ export const InstructorCourseEditorPage: React.FC = () => {
                         {/* Edit / Delete */}
                         <button
                           onClick={() => handleOpenLessonModal(lesson)}
-                          className="p-2 text-muted-text hover:text-white bg-muted-bg rounded cursor-pointer transition-colors"
+                          className="p-2 text-muted-text hover:text-foreground bg-muted-bg rounded cursor-pointer transition-colors"
                           title="Edit lesson details"
                         >
                           <Edit2 className="w-3.5 h-3.5" />
@@ -598,7 +598,7 @@ export const InstructorCourseEditorPage: React.FC = () => {
                         type="button"
                         onClick={() => setEvalType('ASSIGNMENT')}
                         className={`p-3 border rounded-md text-xs font-semibold text-center transition-all ${
-                          evalType === 'ASSIGNMENT' ? 'border-primary bg-primary/5 text-primary' : 'border-border text-muted-text hover:text-white'
+                          evalType === 'ASSIGNMENT' ? 'border-primary bg-primary/5 text-primary' : 'border-border text-muted-text hover:text-foreground'
                         }`}
                       >
                         Assignment Task
@@ -607,7 +607,7 @@ export const InstructorCourseEditorPage: React.FC = () => {
                         type="button"
                         onClick={() => setEvalType('QUIZ')}
                         className={`p-3 border rounded-md text-xs font-semibold text-center transition-all ${
-                          evalType === 'QUIZ' ? 'border-primary bg-primary/5 text-primary' : 'border-border text-muted-text hover:text-white'
+                          evalType === 'QUIZ' ? 'border-primary bg-primary/5 text-primary' : 'border-border text-muted-text hover:text-foreground'
                         }`}
                       >
                         Multiple Choice Quiz

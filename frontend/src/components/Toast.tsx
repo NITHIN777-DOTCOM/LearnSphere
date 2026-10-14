@@ -90,7 +90,7 @@ const ToastCard: React.FC<{ toast: ToastItem; onClose: () => void }> = ({ toast,
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9, y: -10 }}
       layout
-      className={`glass-panel border ${borderColors[toast.type]} rounded-lg p-4 shadow-soft flex items-start gap-3 w-full pointer-events-auto`}
+      className={`bg-card border ${borderColors[toast.type]} rounded-lg p-4 shadow-soft flex items-start gap-3 w-full pointer-events-auto`}
     >
       {icons[toast.type]}
       <div className="flex-grow text-sm text-foreground/95 select-none pr-2 leading-snug">

@@ -74,7 +74,7 @@ export const AdminDashboard: React.FC = () => {
     <div className="space-y-8">
       {/* Overview Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <Card className="glass-card">
+        <Card>
           <CardContent className="pt-6 flex items-center gap-4">
             <div className="bg-primary/10 p-3 rounded-lg border border-primary/20">
               <Users className="w-6 h-6 text-primary" />
@@ -90,7 +90,7 @@ export const AdminDashboard: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="glass-card">
+        <Card>
           <CardContent className="pt-6 flex items-center gap-4">
             <div className="bg-success/10 p-3 rounded-lg border border-success/20">
               <BookOpen className="w-6 h-6 text-success" />
@@ -106,7 +106,7 @@ export const AdminDashboard: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="glass-card">
+        <Card>
           <CardContent className="pt-6 flex items-center gap-4">
             <div className="bg-warning/10 p-3 rounded-lg border border-warning/20">
               <Award className="w-6 h-6 text-warning" />

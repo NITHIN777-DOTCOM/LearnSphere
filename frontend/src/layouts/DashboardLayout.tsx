@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth.js';
 import { Navbar } from '../components/Navbar.js';
@@ -7,7 +7,6 @@ import { Spinner } from '../components/Spinner.js';
 
 export const DashboardLayout: React.FC = () => {
   const { isAuthenticated, isLoading } = useAuth();
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   if (isLoading) {
     return <Spinner fullPage size="lg" />;
@@ -24,14 +23,14 @@ export const DashboardLayout: React.FC = () => {
       <Navbar />
 
       {/* Main Dashboard Panel */}
-      <div className="flex flex-row flex-1 h-[calc(100vh-4rem)] overflow-hidden">
+      <div className="flex flex-row flex-1 h-[calc(100vh-4.25rem)] overflow-hidden">
         {/* Sidebar */}
         <div className="hidden md:block flex-shrink-0">
-          <Sidebar isCollapsed={isSidebarCollapsed} setIsCollapsed={setIsSidebarCollapsed} />
+          <Sidebar />
         </div>
 
         {/* Dynamic Nested Content */}
-        <main className="flex-1 overflow-y-auto bg-background p-6 md:p-8 scrollbar-thin">
+        <main className="flex-1 overflow-y-auto bg-background px-4 py-6 md:px-12 md:py-10 scrollbar-thin">
           <Outlet />
         </main>
       </div>

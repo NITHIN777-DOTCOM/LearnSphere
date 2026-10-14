@@ -137,7 +137,7 @@ export const InstructorDashboard: React.FC = () => {
 
       {/* Overview Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
-        <Card className="glass-card">
+        <Card>
           <CardContent className="pt-6 flex items-center gap-4">
             <div className="bg-primary/10 p-3 rounded-lg border border-primary/20">
               <BookOpen className="w-6 h-6 text-primary" />
@@ -149,7 +149,7 @@ export const InstructorDashboard: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="glass-card">
+        <Card>
           <CardContent className="pt-6 flex items-center gap-4">
             <div className="bg-success/10 p-3 rounded-lg border border-success/20">
               <Users className="w-6 h-6 text-success" />
@@ -161,7 +161,7 @@ export const InstructorDashboard: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="glass-card">
+        <Card>
           <CardContent className="pt-6 flex items-center gap-4">
             <div className="bg-danger/10 p-3 rounded-lg border border-danger/20">
               <FileCheck className="w-6 h-6 text-danger" />
@@ -173,7 +173,7 @@ export const InstructorDashboard: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="glass-card">
+        <Card>
           <CardContent className="pt-6 flex items-center gap-4">
             <div className="bg-warning/10 p-3 rounded-lg border border-warning/20">
               <HelpCircle className="w-6 h-6 text-warning" />
@@ -321,7 +321,7 @@ export const InstructorDashboard: React.FC = () => {
                   {/* Actions */}
                   <div className="flex items-center gap-2 mt-2 sm:mt-0">
                     <Link to={`/dashboard/courses/${course.id}/edit`}>
-                      <button className="p-2 rounded bg-muted-bg hover:bg-border/60 text-muted-text hover:text-white cursor-pointer transition-colors" title="Edit course details & curriculum">
+                      <button className="p-2 rounded bg-muted-bg hover:bg-border/60 text-muted-text hover:text-foreground cursor-pointer transition-colors" title="Edit course details & curriculum">
                         <Edit className="w-4 h-4" />
                       </button>
                     </Link>
@@ -330,7 +330,7 @@ export const InstructorDashboard: React.FC = () => {
                       className={`p-2 rounded cursor-pointer transition-colors ${
                         course.status === 'PUBLISHED'
                           ? 'bg-success/10 hover:bg-success/20 text-success'
-                          : 'bg-muted-bg hover:bg-border/60 text-muted-text hover:text-white'
+                          : 'bg-muted-bg hover:bg-border/60 text-muted-text hover:text-foreground'
                       }`}
                       title={course.status === 'PUBLISHED' ? 'Unpublish Course' : 'Publish Course'}
                     >

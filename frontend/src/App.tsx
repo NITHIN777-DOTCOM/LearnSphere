@@ -7,7 +7,7 @@ import { ThemeProvider } from './context/ThemeContext.js';
 import { Card, CardHeader, CardTitle, CardContent } from './components/Card.js';
 
 // Lazy loaded page components (converting named exports to default loads)
-const LandingPage = lazy(() => import('./pages/LandingPage.js').then(m => ({ default: m.LandingPage })));
+const HomePage = lazy(() => import('./pages/HomePage.js').then(m => ({ default: m.HomePage })));
 const LoginPage = lazy(() => import('./pages/LoginPage.js').then(m => ({ default: m.LoginPage })));
 const RegisterPage = lazy(() => import('./pages/RegisterPage.js').then(m => ({ default: m.RegisterPage })));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.js').then(m => ({ default: m.NotFoundPage })));
@@ -49,7 +49,7 @@ export const App: React.FC = () => {
             <Suspense fallback={<AppLoader />}>
               <Routes>
                 {/* Public Pages */}
-                <Route path="/" element={<LandingPage />} />
+                <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
 

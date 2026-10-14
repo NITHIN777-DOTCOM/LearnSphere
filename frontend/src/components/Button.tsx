@@ -26,14 +26,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const baseStyles = 'inline-flex items-center justify-center font-medium rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50 disabled:cursor-not-allowed';
+    const baseStyles = 'inline-flex items-center justify-center font-medium rounded-md transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 disabled:opacity-50 disabled:cursor-not-allowed';
     
     const variants = {
-      primary: 'bg-primary text-white hover:bg-primary-hover shadow-soft',
-      secondary: 'bg-muted-bg text-foreground hover:bg-border/60',
-      outline: 'bg-transparent border border-border text-foreground hover:bg-muted-bg/50',
-      danger: 'bg-danger text-white hover:bg-danger/90 shadow-soft',
-      success: 'bg-success text-black hover:bg-success/90 font-semibold shadow-soft',
+      primary: 'bg-foreground text-background border border-foreground hover:opacity-90',
+      secondary: 'bg-muted-bg text-foreground border border-border hover:bg-border/60',
+      outline: 'bg-transparent border border-border text-foreground hover:bg-muted-bg',
+      danger: 'bg-transparent border border-danger/40 text-danger hover:bg-danger/10',
+      success: 'bg-primary text-primary-foreground border border-primary hover:bg-primary-hover',
       ghost: 'bg-transparent text-foreground hover:bg-muted-bg',
     };
 

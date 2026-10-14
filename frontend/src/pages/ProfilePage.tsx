@@ -149,7 +149,7 @@ export const ProfilePage: React.FC = () => {
                   alt={`${user?.firstName} ${user?.lastName}`}
                   size="xl"
                 />
-                <label className="absolute bottom-1 right-1 p-2 bg-primary hover:bg-primary-hover text-white rounded-full cursor-pointer shadow-soft border border-border/40 transition-colors">
+                <label className="absolute bottom-1 right-1 p-2 bg-primary hover:bg-primary-hover text-primary-foreground rounded-full cursor-pointer shadow-soft border border-border/40 transition-colors">
                   <Camera className="w-4 h-4" />
                   <input
                     type="file"
@@ -161,7 +161,7 @@ export const ProfilePage: React.FC = () => {
                 </label>
               </div>
 
-              {avatarUploading && <p className="text-xs text-primary animate-pulse">Uploading photo...</p>}
+              {avatarUploading && <p className="text-xs text-primary">Uploading photo...</p>}
 
               <div>
                 <h3 className="font-bold text-foreground text-base">
@@ -192,7 +192,7 @@ export const ProfilePage: React.FC = () => {
               <p className="text-xs font-bold text-foreground">Current Streak</p>
               <p className="text-[10px] text-muted-text mt-0.5">Consecutive study days</p>
             </div>
-            <div className="flex items-center gap-1 text-warning bg-warning/10 border border-warning/20 px-3 py-1 rounded-full text-xs font-extrabold animate-pulse">
+            <div className="flex items-center gap-1 text-warning bg-warning/10 border border-warning/20 px-3 py-1 rounded-full text-xs font-extrabold">
               <Flame className="w-4 h-4 fill-warning" />
               <span>5 Days</span>
             </div>

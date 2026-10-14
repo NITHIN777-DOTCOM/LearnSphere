@@ -57,7 +57,7 @@ export const ExploreCoursesPage: React.FC = () => {
       </div>
 
       {/* Filters row */}
-      <Card className="glass-card">
+      <Card>
         <CardContent className="pt-6">
           <form onSubmit={handleSearchSubmit} className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="md:col-span-2">

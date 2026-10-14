@@ -111,38 +111,38 @@ export const StudentDashboard: React.FC = () => {
     <div className="space-y-8">
       {/* Overview Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <Card className="glass-card">
+        <Card>
           <CardContent className="pt-6 flex items-center gap-4">
             <div className="bg-primary/10 p-3 rounded-lg border border-primary/20">
               <BookOpen className="w-6 h-6 text-primary" />
             </div>
             <div>
               <p className="text-xs text-muted-text uppercase tracking-wider font-semibold">Enrolled Courses</p>
-              <p className="text-2xl font-extrabold text-white dark:text-white light:text-foreground mt-0.5">{stats?.totalEnrolled || 0}</p>
+              <p className="text-2xl font-extrabold text-foreground mt-0.5">{stats?.totalEnrolled || 0}</p>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="glass-card">
+        <Card>
           <CardContent className="pt-6 flex items-center gap-4">
             <div className="bg-success/10 p-3 rounded-lg border border-success/20">
               <Award className="w-6 h-6 text-success" />
             </div>
             <div>
               <p className="text-xs text-muted-text uppercase tracking-wider font-semibold">Completed Courses</p>
-              <p className="text-2xl font-extrabold text-white dark:text-white light:text-foreground mt-0.5">{stats?.completedCourses || 0}</p>
+              <p className="text-2xl font-extrabold text-foreground mt-0.5">{stats?.completedCourses || 0}</p>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="glass-card">
+        <Card>
           <CardContent className="pt-6 flex items-center gap-4">
             <div className="bg-warning/10 p-3 rounded-lg border border-warning/20">
               <Clock className="w-6 h-6 text-warning" />
             </div>
             <div>
               <p className="text-xs text-muted-text uppercase tracking-wider font-semibold">Average Progress</p>
-              <p className="text-2xl font-extrabold text-white dark:text-white light:text-foreground mt-0.5">{stats?.avgProgress || 0}%</p>
+              <p className="text-2xl font-extrabold text-foreground mt-0.5">{stats?.avgProgress || 0}%</p>
             </div>
           </CardContent>
         </Card>
@@ -227,7 +227,7 @@ export const StudentDashboard: React.FC = () => {
                 <h4 className="font-bold text-foreground text-sm">Study Streak</h4>
                 <p className="text-[10px] text-muted-text mt-0.5">Consecutive learning days</p>
               </div>
-              <div className="flex items-center gap-1 text-warning bg-warning/10 border border-warning/20 px-2.5 py-0.5 rounded-full text-xs font-extrabold animate-pulse">
+              <div className="flex items-center gap-1 text-warning bg-warning/10 border border-warning/20 px-2.5 py-0.5 rounded-full text-xs font-extrabold">
                 <Flame className="w-4 h-4 fill-warning" />
                 <span>{streakCount} Days</span>
               </div>
@@ -301,7 +301,7 @@ export const StudentDashboard: React.FC = () => {
                     <div className="px-5 pb-5 pt-2 border-t border-border/30">
                       <ProgressBar value={item.progress} showLabel size="sm" className="mb-4" />
                       <Link to={`/dashboard/courses/${item.course.id}/learn`}>
-                        <button className="w-full bg-primary hover:bg-primary-hover text-white text-xs font-semibold py-2 rounded-md transition-colors cursor-pointer">
+                        <button className="w-full bg-primary hover:bg-primary-hover text-primary-foreground text-xs font-semibold py-2 rounded-md transition-colors cursor-pointer">
                           Resume Study
                         </button>
                       </Link>

@@ -236,7 +236,7 @@ export const StudentLessonViewerPage: React.FC = () => {
                     key={lesson.id}
                     onClick={() => selectItem('LESSON', lesson.id)}
                     className={`w-full flex items-center justify-between text-left p-2.5 rounded text-xs transition-all ${
-                      isActive ? 'bg-primary text-white' : 'text-muted-text hover:bg-muted-bg/50 hover:text-white'
+                      isActive ? 'bg-primary text-primary-foreground' : 'text-muted-text hover:bg-muted-bg/50 hover:text-foreground'
                     }`}
                   >
                     <div className="flex items-center gap-2 truncate pr-2">
@@ -261,7 +261,7 @@ export const StudentLessonViewerPage: React.FC = () => {
                       key={quiz.id}
                       onClick={() => selectItem('QUIZ', quiz.id)}
                       className={`w-full flex items-center gap-2 text-left p-2.5 rounded text-xs transition-all ${
-                        isActive ? 'bg-primary text-white' : 'text-muted-text hover:bg-muted-bg/50 hover:text-white'
+                        isActive ? 'bg-primary text-primary-foreground' : 'text-muted-text hover:bg-muted-bg/50 hover:text-foreground'
                       }`}
                     >
                       <Award className="w-3.5 h-3.5" />
@@ -285,7 +285,7 @@ export const StudentLessonViewerPage: React.FC = () => {
                       key={asm.id}
                       onClick={() => selectItem('ASSIGNMENT', asm.id)}
                       className={`w-full flex items-center gap-2 text-left p-2.5 rounded text-xs transition-all ${
-                        isActive ? 'bg-primary text-white' : 'text-muted-text hover:bg-muted-bg/50 hover:text-white'
+                        isActive ? 'bg-primary text-primary-foreground' : 'text-muted-text hover:bg-muted-bg/50 hover:text-foreground'
                       }`}
                     >
                       <FileText className="w-3.5 h-3.5" />
@@ -398,7 +398,7 @@ export const StudentLessonViewerPage: React.FC = () => {
                 <div className="space-y-6 pt-4">
                   {activeQuiz.questions.map((q, qIdx) => (
                     <div key={qIdx} className="space-y-3">
-                      <p className="text-sm font-semibold text-white">Q{qIdx + 1}. {q.questionText}</p>
+                      <p className="text-sm font-semibold text-foreground">Q{qIdx + 1}. {q.questionText}</p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pl-4">
                         {q.options.map((opt, oIdx) => {
                           const isSelected = quizAnswers[qIdx] === oIdx;
@@ -409,7 +409,7 @@ export const StudentLessonViewerPage: React.FC = () => {
                               className={`text-left p-3 rounded-md text-xs border transition-all ${
                                 isSelected
                                   ? 'border-primary bg-primary/10 text-primary'
-                                  : 'border-border bg-card text-muted-text hover:text-white hover:border-border/80'
+                                  : 'border-border bg-card text-muted-text hover:text-foreground hover:border-border/80'
                               }`}
                             >
                               {opt}
@@ -435,7 +435,7 @@ export const StudentLessonViewerPage: React.FC = () => {
         {activeItem?.type === 'ASSIGNMENT' && activeAssignment && (
           <div className="space-y-6 flex-grow flex flex-col justify-between">
             <div className="space-y-4">
-              <h1 className="text-xl font-bold text-white">{activeAssignment.title}</h1>
+              <h1 className="text-xl font-bold text-foreground">{activeAssignment.title}</h1>
               <div className="bg-card border border-border p-4 rounded text-sm text-foreground/80 leading-relaxed whitespace-pre-wrap mb-6 select-text">
                 {activeAssignment.description}
               </div>
@@ -443,7 +443,7 @@ export const StudentLessonViewerPage: React.FC = () => {
               {submissionStatus ? (
                 <Card className="bg-muted-bg/30">
                   <CardHeader>
-                    <CardTitle className="text-sm font-bold text-white">Submission Status</CardTitle>
+                    <CardTitle className="text-sm font-bold text-foreground">Submission Status</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3 pt-0">
                     <div className="flex gap-4 text-xs text-muted-text">
@@ -457,7 +457,7 @@ export const StudentLessonViewerPage: React.FC = () => {
                     </div>
                     {submissionStatus.grade !== null && (
                       <div className="mt-4 p-4 bg-muted-bg border border-border rounded space-y-2">
-                        <p className="text-sm text-white font-semibold">Grade: <span className="text-primary">{submissionStatus.grade}/100</span></p>
+                        <p className="text-sm text-foreground font-semibold">Grade: <span className="text-primary">{submissionStatus.grade}/100</span></p>
                         {submissionStatus.feedback && (
                           <div>
                             <p className="text-xs text-muted-text font-medium">Instructor Feedback:</p>

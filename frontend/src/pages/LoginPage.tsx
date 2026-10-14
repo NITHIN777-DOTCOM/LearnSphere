@@ -3,13 +3,12 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Link, useNavigate } from 'react-router-dom';
-import { Mail, Lock, LogIn, ArrowLeft } from 'lucide-react';
+import { Mail, Lock, ArrowLeft } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth.js';
 import { useToast } from '../components/Toast.js';
 import { Button } from '../components/Button.js';
 import { Input } from '../components/Input.js';
 import { Card, CardContent } from '../components/Card.js';
-import { Logo } from '../components/Logo.js';
 
 const loginSchema = z.object({
   email: z.string().email({ message: 'Invalid email address' }),
@@ -36,7 +35,7 @@ export const LoginPage: React.FC = () => {
     setLoading(true);
     try {
       await login(data.email, data.password);
-      toast.success('Successfully logged in!');
+      toast.success('Signed in');
       navigate('/dashboard');
     } catch (error: any) {
       console.error(error);
@@ -48,28 +47,23 @@ export const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative">
-      {/* Background blurs */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+    <div className="min-h-screen bg-background flex flex-col justify-center py-12 sm:px-6 lg:px-8">
 
       {/* Back button */}
       <div className="absolute top-6 left-6">
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-text hover:text-foreground transition-colors">
-          <ArrowLeft className="w-4 h-4" /> Back to home
+          <ArrowLeft className="w-4 h-4" /> Back
         </Link>
       </div>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="flex justify-center">
-          <Logo size={40} showText={false} />
-        </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-foreground">
-          Sign in to LearnSphere
+        <h2 className="text-center text-2xl font-semibold text-foreground">
+          Welcome back
         </h2>
         <p className="mt-2 text-center text-sm text-muted-text">
-          Or{' '}
-          <Link to="/register" className="font-semibold text-primary hover:text-primary-hover transition-colors">
-            create a new account
+          New here?{' '}
+          <Link to="/register" className="font-medium text-primary hover:text-primary-hover transition-colors">
+            Make an account
           </Link>
         </p>
       </div>
@@ -111,15 +105,10 @@ export const LoginPage: React.FC = () => {
                   </label>
                 </div>
 
-                <div className="text-xs">
-                  <a href="#" className="font-semibold text-primary hover:text-primary-hover">
-                    Forgot your password?
-                  </a>
-                </div>
               </div>
 
-              <Button type="submit" fullWidth isLoading={loading} leftIcon={<LogIn className="w-4 h-4" />}>
-                Sign In
+              <Button type="submit" fullWidth isLoading={loading} >
+                Sign in
               </Button>
             </form>
           </CardContent>

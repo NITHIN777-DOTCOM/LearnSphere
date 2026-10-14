@@ -82,7 +82,7 @@ export const InstructorAnalyticsPage: React.FC = () => {
 
       {/* Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
-        <Card className="glass-card">
+        <Card>
           <CardContent className="pt-6 flex items-center gap-4">
             <div className="bg-success/10 p-3 rounded-lg border border-success/20">
               <DollarSign className="w-6 h-6 text-success" />
@@ -97,7 +97,7 @@ export const InstructorAnalyticsPage: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="glass-card">
+        <Card>
           <CardContent className="pt-6 flex items-center gap-4">
             <div className="bg-primary/10 p-3 rounded-lg border border-primary/20">
               <Users className="w-6 h-6 text-primary" />
@@ -112,7 +112,7 @@ export const InstructorAnalyticsPage: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="glass-card">
+        <Card>
           <CardContent className="pt-6 flex items-center gap-4">
             <div className="bg-warning/10 p-3 rounded-lg border border-warning/20">
               <Star className="w-6 h-6 text-warning" />
@@ -131,7 +131,7 @@ export const InstructorAnalyticsPage: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="glass-card">
+        <Card>
           <CardContent className="pt-6 flex items-center gap-4">
             <div className="bg-danger/10 p-3 rounded-lg border border-danger/20">
               <CheckCircle className="w-6 h-6 text-danger" />

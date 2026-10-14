@@ -26,9 +26,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           <input
             id={id}
             ref={ref}
-            className={`w-full bg-sidebar border ${
+            className={`w-full bg-card border ${
               error ? 'border-danger focus:ring-danger/30' : 'border-border focus:ring-primary/30'
-            } text-foreground rounded-md px-3.5 py-2 text-sm placeholder:text-muted-text focus:outline-none focus:ring-2 transition-all duration-200 ${
+            } text-foreground rounded-md px-3.5 py-2.5 text-sm placeholder:text-muted-text focus:outline-none focus:ring-2 transition-all duration-200 ${
               leftIcon ? 'pl-10' : ''
             } ${rightIcon ? 'pr-10' : ''} ${className}`}
             {...props}

@@ -9,7 +9,6 @@ import { useToast } from '../components/Toast.js';
 import { Button } from '../components/Button.js';
 import { Input } from '../components/Input.js';
 import { Card, CardContent } from '../components/Card.js';
-import { Logo } from '../components/Logo.js';
 import type { Role } from '../types/index.js';
 
 const registerSchema = z.object({
@@ -66,20 +65,16 @@ export const RegisterPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative">
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+    <div className="min-h-screen bg-background flex flex-col justify-center py-12 sm:px-6 lg:px-8">
 
       <div className="absolute top-6 left-6">
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-text hover:text-foreground transition-colors">
-          <ArrowLeft className="w-4 h-4" /> Back to home
+          <ArrowLeft className="w-4 h-4" /> Back
         </Link>
       </div>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="flex justify-center">
-          <Logo size={40} showText={false} />
-        </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-foreground">
+        <h2 className="text-center text-2xl font-semibold text-foreground">
           Create your account
         </h2>
         <p className="mt-2 text-center text-sm text-muted-text">

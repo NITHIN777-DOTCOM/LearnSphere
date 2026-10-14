@@ -142,7 +142,7 @@ export const CourseDetailsPage: React.FC = () => {
         </div>
 
         {/* Action Panel */}
-        <Card className="glass-card flex flex-col justify-between p-6">
+        <Card className="flex flex-col justify-between p-6">
           <div className="space-y-4">
             <div className="aspect-video bg-muted-bg rounded-md overflow-hidden border border-border/40 flex items-center justify-center relative">
               {course.coverImage ? (
